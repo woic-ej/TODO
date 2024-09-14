@@ -1,11 +1,9 @@
-"use client";
-
-import EditButton from "@/app/_components/buttons/EditButton";
+import LargeNavBar from "@/app/_components/navbars/LargeNavBar";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-3">
-      <EditButton />
+      <LargeNavBar />
     </div>
   );
 }
