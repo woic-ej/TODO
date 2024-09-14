@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import CheckBox from "@/app/_components/check-list/CheckBox";
+import CheckBox from "./CheckBox";
 
 interface Props {
   todo: string;
 }
 
-const CheckList: React.FC<Props> = ({ todo }) => {
+const DetailTodoItem: React.FC<Props> = ({ todo }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -16,16 +16,16 @@ const CheckList: React.FC<Props> = ({ todo }) => {
 
   return (
     <div
-      className={`w-[527px] h-[50px] rounded-[27px] border-2 pl-3 border-slate-900 flex items-center nanum-regular-16 ${
+      className={`w-[996px] h-[50px] rounded-3xl border-2  border-slate-900 flex items-center justify-center  ${
         isChecked ? "bg-violet-100" : "bg-white"
       }`}
     >
       <div className="flex items-center gap-4">
         <CheckBox isChecked={isChecked} onClick={handleClick} />
-        <span className={`${isChecked && "line-through"}`}>{todo}</span>
+        <span className="underline nanum-bold-20 text-slate-900">{todo}</span>
       </div>
     </div>
   );
 };
 
-export default CheckList;
+export default DetailTodoItem;
