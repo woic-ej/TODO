@@ -25,7 +25,7 @@ const LargeButton: React.FC<Props> = ({ title, isClicked, onClick }) => {
   };
 
   const buttonClass = classNames(
-    "w-[168px] h-[56px] flex items-center justify-center border-2 border-slate-900 rounded-3xl nanum-bold-18 relative z-10",
+    "w-[164.35px] h-[56px] flex items-center justify-center border-2 border-slate-900 rounded-3xl nanum-bold-18 relative z-10",
     {
       "bg-slate-200 text-slate-900": title !== "삭제하기",
       "bg-rose-500 text-white": title === "삭제하기",
@@ -42,7 +42,7 @@ const LargeButton: React.FC<Props> = ({ title, isClicked, onClick }) => {
           {title}
         </div>
       </div>
-      <div className="w-[168px] h-[56px] absolute rounded-3xl bg-slate-900 top-1 left-[3.65px] z" />
+      <div className="w-[164.35px] h-[56px] absolute rounded-3xl bg-slate-900 top-1 left-[3.65px]" />
     </button>
   );
 };
