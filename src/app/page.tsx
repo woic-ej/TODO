@@ -1,8 +1,27 @@
+"use client";
+
+import LargeButton from "@/app/_components/buttons/LargeButton";
+import { useState } from "react";
+
 export default function Home() {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsClicked((prev) => !prev);
+  };
   return (
     <div className="flex flex-col gap-3">
-      <span className="text-[50px] text-amber-800">Home</span>
-      <span className="font-extrabold text-[50px]">Home</span>
+      <LargeButton title="삭제하기" onClick={handleClick} />
+      <LargeButton
+        title="수정완료"
+        onClick={handleClick}
+        isClicked={isClicked}
+      />
+      <LargeButton
+        title="추가하기"
+        onClick={handleClick}
+        isClicked={isClicked}
+      />
     </div>
   );
 }
