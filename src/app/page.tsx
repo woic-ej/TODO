@@ -1,11 +1,11 @@
 "use client";
 
-import PlusButton from "@/app/_components/buttons/PlusButton";
+import EditButton from "@/app/_components/buttons/EditButton";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-3">
-      <PlusButton />
+      <EditButton />
     </div>
   );
 }
