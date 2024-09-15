@@ -1,9 +1,20 @@
+"use client";
+
 import SearchBar from "@/app/_components/search/SearchBar";
 import LargeButton from "@/app/_components/buttons/LargeButton";
 import ListBox from "@/app/(home)/_components/list/ListBox";
 import SmallButton from "@/app/_components/buttons/SmallButton";
+import { useEffect } from "react";
+import { getData } from "../_api/api";
 
 export default function Home() {
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData("items");
+      console.log(data);
+    };
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="flex items-center justify-center sm:gap-4 gap-2 mt-6">
