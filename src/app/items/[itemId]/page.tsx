@@ -1,7 +1,7 @@
 import DetailTodoItem from "@/app/_components/check-list/DetailTodoItem";
 import React from "react";
-import ImageUpload from "@/app/detail/[todoId]/_components/ImageUpload";
-import Memo from "@/app/detail/[todoId]/_components/Memo";
+import ImageUpload from "@/app/items/[itemId]/_components/ImageUpload";
+import Memo from "@/app/items/[itemId]/_components/Memo";
 import LargeButton from "@/app/_components/buttons/LargeButton";
 
 const DetailPage = () => {

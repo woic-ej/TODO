@@ -7,7 +7,7 @@ import Check from "@/assets/icons/button/check-icon.svg";
 import classNames from "classnames";
 
 interface Props {
-  title: "추가하기" | "삭제하기" | "수정완료";
+  title: string;
   isClicked?: boolean;
   onClick?: () => void;
 }
