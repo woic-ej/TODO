@@ -1,7 +1,7 @@
-"use Client";
+"use client";
 
 import React, { useState } from "react";
-import Plus from "@/assets/icons/plus-icon.svg";
+import Plus from "@/assets/icons/button/plus-button-icon.svg";
 import classNames from "classnames";
 
 const SmallButton = () => {

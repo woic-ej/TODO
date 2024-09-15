@@ -1,15 +1,15 @@
 "use client";
 
 import React from "react";
-import Plus from "@/assets/icons/plus-icon.svg";
-import Delete from "@/assets/icons/x-icon.svg";
-import Check from "@/assets/icons/check-icon.svg";
+import Plus from "@/assets/icons/button/plus-icon.svg";
+import Delete from "@/assets/icons/button/x-icon.svg";
+import Check from "@/assets/icons/button/check-icon.svg";
 import classNames from "classnames";
 
 interface Props {
   title: "추가하기" | "삭제하기" | "수정완료";
   isClicked?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const LargeButton: React.FC<Props> = ({ title, isClicked, onClick }) => {

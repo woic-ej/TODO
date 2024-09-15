@@ -16,7 +16,7 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
 
   return (
     <div
-      className={`w-[527px] h-[50px] rounded-[27px] border-2 pl-3 border-slate-900 flex items-center ${
+      className={`w-full h-[50px] rounded-[27px] border-2 pl-3 border-slate-900 flex items-center ${
         isChecked ? "bg-violet-100" : "bg-white"
       }`}
     >

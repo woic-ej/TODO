@@ -8,6 +8,12 @@ const nanumSquare = localFont({
   weight: "100 900",
 });
 
+const ssanToKKi = localFont({
+  src: "./fonts/HSSantokki.ttf",
+  variable: "--font-ssan-tokki",
+  weight: "100 900",
+});
+
 export const metadata: Metadata = {
   title: "TODO App",
   description: "todo app",
@@ -20,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${nanumSquare.variable} antialiased`}>{children}</body>
+      <body
+        className={`${nanumSquare.variable} ${ssanToKKi.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

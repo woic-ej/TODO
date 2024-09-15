@@ -5,12 +5,18 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "NanumSquare", Arial, Helvetica, sans-serif;
+  font-family: "NanumSquare", "SSantokki", Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .font-ssan-tokki {
+    font-family: var(--font-ssan-tokki), sans-serif;
   }
 }
 
