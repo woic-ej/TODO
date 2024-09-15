@@ -6,16 +6,16 @@ import SmallButton from "@/app/_components/buttons/SmallButton";
 export default function Home() {
   return (
     <div>
-      <div className="flex items-center justify-center custom-sm:gap-4 gap-2 mt-6">
+      <div className="flex items-center justify-center sm:gap-4 gap-2 mt-6">
         <SearchBar />
-        <div className="hidden custom-sm:block">
+        <div className="hidden sm:block">
           <LargeButton title="추가하기" />
         </div>
-        <div className="block custom-sm:hidden">
+        <div className="block sm:hidden">
           <SmallButton />
         </div>
       </div>
-      <div className="flex custom-md:flex-row flex-col gap-12 custom-md:gap-6 mt-10">
+      <div className="flex md:flex-row flex-col gap-12 md:gap-6 mt-10">
         <ListBox
           label="TO DO"
           list={["비타민 챙겨먹기", "산책가기", "응가하기"]}

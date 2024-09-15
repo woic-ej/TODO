@@ -22,12 +22,12 @@ const ListBox: React.FC<Props> = ({ label, list }) => {
           <Image
             src={label === "TO DO" ? TodoLarge : DoneLarge}
             alt="리스트가 없을 때 이미지"
-            className="max-custom-sm:hidden block"
+            className="max-sm:hidden block"
           />
           <Image
             src={label === "TO DO" ? TodoSmall : DoneSmall}
             alt="리스트가 없을 때 이미지"
-            className="max-custom-sm:block hidden"
+            className="max-sm:block hidden"
           />
           <span className="text-center text-slate-400 nanum-bold-16">
             할 일이 없어요. <br />
