@@ -35,7 +35,7 @@ const ListBox: React.FC<Props> = ({ label, list }) => {
           </span>
         </div>
       ) : (
-        list.map((item) => <TodoItem todo={item} />)
+        list.map((item, index) => <TodoItem todo={item} key={index} />)
       )}
     </div>
   );
