@@ -1,8 +1,8 @@
 import React from "react";
-import PlusIcon from "@/assets/icons/plus-button-icon.svg";
+import PlusIcon from "@/assets/icons/button/plus-button-icon.svg";
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const PlusButton: React.FC<Props> = ({ onClick }) => {
@@ -11,7 +11,7 @@ const PlusButton: React.FC<Props> = ({ onClick }) => {
       onClick={onClick}
       className="w-[64px] h-[64px] flex justify-center items-center bg-slate-200 rounded-full "
     >
-      <PlusIcon />
+      <PlusIcon stroke="#64748B" />
     </button>
   );
 };

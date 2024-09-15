@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import NavBar from "@/app/_components/navbars/NavBar";
 
 const nanumSquare = localFont({
   src: "./fonts/NanumSquareR.ttf",
@@ -29,7 +30,10 @@ export default function RootLayout({
       <body
         className={`${nanumSquare.variable} ${ssanToKKi.variable} antialiased`}
       >
-        {children}
+        <NavBar />
+        <div className="flex flex-col items-center w-full h-screen bg-gray-50">
+          {children}
+        </div>
       </body>
     </html>
   );

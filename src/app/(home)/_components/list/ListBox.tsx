@@ -1,5 +1,5 @@
 import React from "react";
-import Label from "@/app/(home)/components/label/Label";
+import Label from "@/app/(home)/_components/label/Label";
 import TodoItem from "@/app/_components/check-list/TodoItem";
 import Image from "next/image";
 import DoneLarge from "@/assets/images/done-large.png";
