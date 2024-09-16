@@ -8,7 +8,6 @@ const nextConfig = {
     return config;
   },
   async rewrites() {
-    console.log("NEXT_PROXY_URL:", process.env.NEXT_PROXY_URL); // 환경 변수 확인
     return [
       {
         source: "/api/:path*",
