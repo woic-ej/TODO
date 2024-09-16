@@ -1,26 +1,25 @@
-"use client";
-
 import React from "react";
-import Plus from "@/assets/icons/button/plus-icon.svg";
+import Plus from "@/app/_components/icons/Plus";
 import Delete from "@/assets/icons/button/x-icon.svg";
 import Check from "@/assets/icons/button/check-icon.svg";
 import classNames from "classnames";
 
 interface Props {
   title: string;
-  isClicked?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
-const LargeButton: React.FC<Props> = ({ title, isClicked, onClick }) => {
+const LargeButton: React.FC<Props> = ({ title, onClick }) => {
   const IconComponent: React.FC = () => {
     switch (title) {
       case "추가하기":
-        return <Plus stroke={`${isClicked ? "white" : "#0F172A"}`} />;
+        return <Plus className="active:stroke-white stroke-[#0F172A]" />;
       case "삭제하기":
         return <Delete />;
       case "수정완료":
         return <Check />;
+      default:
+        return null;
     }
   };
 
@@ -29,8 +28,8 @@ const LargeButton: React.FC<Props> = ({ title, isClicked, onClick }) => {
     {
       "bg-slate-200 text-slate-900": title !== "삭제하기",
       "bg-rose-500 text-white": title === "삭제하기",
-      "bg-violet-600 text-white": isClicked && title === "추가하기",
-      "bg-lime-300": isClicked && title === "수정완료",
+      "active:bg-violet-600 active:text-white": title === "추가하기",
+      "active:bg-lime-300": title === "수정완료",
     }
   );
 

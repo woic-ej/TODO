@@ -2,15 +2,38 @@
 
 import React, { useState } from "react";
 import CheckBox from "@/app/_components/check-list/CheckBox";
+import {
+  GetItemType,
+  UpdateItemRequestType,
+  ItemResponseType,
+} from "@/app/_type/itemType";
+import { patchData } from "@/app/_api/api";
+import useTodoStore from "@/app/_store/todoStore";
 
 interface Props {
-  todo: string;
+  item: GetItemType;
 }
 
-const TodoItem: React.FC<Props> = ({ todo }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+const TodoItem: React.FC<Props> = ({ item }) => {
+  const { name, id, isCompleted } = item;
+  const [isChecked, setIsChecked] = useState<boolean>(isCompleted);
+  const { listData, setListData } = useTodoStore();
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    try {
+      const requestData: UpdateItemRequestType = {
+        name,
+        isCompleted: !isCompleted,
+      };
+      const response: ItemResponseType = await patchData(
+        `items/${id}`,
+        requestData
+      );
+      const newData: GetItemType[] = listData.map((item) =>
+        item.id === id ? { ...item, isCompleted: response.isCompleted } : item
+      );
+      setListData(newData);
+    } catch (error) {}
     setIsChecked((prev) => !prev);
   };
 
@@ -27,7 +50,7 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
             isChecked && "line-through"
           } text-slate-900 nanum-regular-16`}
         >
-          {todo}
+          {name}
         </span>
       </div>
     </div>

@@ -44,7 +44,7 @@ export const getData = (path: string, init?: RequestInit) =>
   request("GET", path, undefined, init);
 export const postData = (path: string, body: any, init?: RequestInit) =>
   request("POST", path, body, init);
-export const putData = (path: string, body: any, init?: RequestInit) =>
-  request("PUT", path, body, init);
+export const patchData = (path: string, body: any, init?: RequestInit) =>
+  request("PATCH", path, body, init);
 export const deleteData = (path: string, body?: any, init?: RequestInit) =>
   request("DELETE", path, body, init);

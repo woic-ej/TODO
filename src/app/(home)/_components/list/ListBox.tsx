@@ -6,10 +6,11 @@ import DoneLarge from "@/assets/images/done-large.png";
 import DoneSmall from "@/assets/images/done-small.png";
 import TodoLarge from "@/assets/images/todo-large.png";
 import TodoSmall from "@/assets/images/todo-small.png";
+import { GetItemType } from "@/app/_type/itemType";
 
 interface Props {
   label: "TO DO" | "DONE";
-  list: string[];
+  list: GetItemType[];
 }
 
 const ListBox: React.FC<Props> = ({ label, list }) => {
@@ -35,7 +36,7 @@ const ListBox: React.FC<Props> = ({ label, list }) => {
           </span>
         </div>
       ) : (
-        list.map((item, index) => <TodoItem todo={item} key={index} />)
+        list.map((item) => <TodoItem item={item} key={item.id} />)
       )}
     </div>
   );

@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${nanumSquare.variable} ${ssanToKKi.variable} antialiased`}
       >
         <NavBar />
-        <div className="flex flex-col items-center w-full h-screen bg-gray-50">
+        <div className="flex flex-col items-center w-full min-h-screen bg-gray-50">
           {children}
         </div>
       </body>

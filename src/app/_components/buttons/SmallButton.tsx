@@ -4,9 +4,14 @@ import React, { useState } from "react";
 import Plus from "@/assets/icons/button/plus-button-icon.svg";
 import classNames from "classnames";
 
-const SmallButton = () => {
+interface Props {
+  onClick: () => void;
+}
+
+const SmallButton: React.FC<Props> = ({ onClick }) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const handleClick = () => {
+    onClick();
     setIsClicked((prev) => !prev);
   };
 
