@@ -11,7 +11,7 @@ interface updateItemState {
 const useUpdateItemStore = create<updateItemState>((set) => ({
   updateItem: {},
   setUpdateItem: (item) => set(() => ({ updateItem: item })),
-  clear: () => set({}),
+  clear: () => set({ updateItem: {} }),
 }));
 
 export default useUpdateItemStore;

@@ -24,7 +24,11 @@ const Memo: React.FC<Props> = ({ memo }) => {
 
   return (
     <div className="md:w-[588px] w-full h-[311px] flex items-center justify-center rounded-3xl relative">
-      <Image src={MemoImage} alt="메모장" className="w-full h-full absolute" />
+      <Image
+        src={MemoImage}
+        alt="메모장"
+        className="w-full h-full absolute rounded-3xl"
+      />
       <div className="w-full h-full flex flex-col items-center py-6 gap-6">
         <span className="text-amber-800 relative nanum-extraB-16">Memo</span>
         <textarea

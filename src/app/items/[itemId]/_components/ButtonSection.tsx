@@ -38,6 +38,7 @@ const ButtonSection: React.FC<Props> = ({ id }) => {
       await patchData(`items/${id}`, updateItem);
       router.replace("/");
       clear();
+      console.log("호출됨?");
     } catch (error) {
       console.error(error);
     }
