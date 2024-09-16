@@ -7,6 +7,7 @@ interface updateItemState {
   clear: () => void;
 }
 
+// 수정 된 item 데이터
 const useUpdateItemStore = create<updateItemState>((set) => ({
   updateItem: {},
   setUpdateItem: (item) => set(() => ({ updateItem: item })),

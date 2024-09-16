@@ -7,6 +7,10 @@ interface Props {
   onClick: (e: React.FormEvent) => void;
 }
 
+/**
+ * 작은 버튼
+ * @param onClick
+ */
 const SmallButton: React.FC<Props> = ({ onClick }) => {
   return (
     <button onClick={onClick} className="relative">

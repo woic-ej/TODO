@@ -9,10 +9,15 @@ interface Props {
   isCompleted: boolean;
 }
 
+/**
+ * 상세 페이지에서 사용되는 할 일 컴포넌트
+ * @param name : 할 일 내용
+ * @param isCompleted : 완료 여부
+ */
 const DetailTodoItem: React.FC<Props> = ({ name, isCompleted }) => {
   const { updateItem, setUpdateItem } = useUpdateItemStore();
   const [isChecked, setIsChecked] = useState<boolean>(isCompleted || false);
-  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isEditing, setIsEditing] = useState<boolean>(false); // 할 일 내용 편집 여부
   const [editedName, setEditedName] = useState<string>(name);
 
   const handleCheckBoxClick = async () => {

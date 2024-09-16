@@ -8,10 +8,15 @@ import { postData } from "@/app/_api/api";
 import { ItemResponseType, PostItemType } from "@/app/_type/itemType";
 import useTodoStore from "@/app/_store/todoStore";
 
+/**
+ * 할 일 목록 추가 컴포넌트
+ */
+
 const SearchSection = () => {
   const [name, setIsName] = useState<string>("");
   const { listData, setListData } = useTodoStore();
 
+  // 할 일 목록 추가 : Enter 키 입력 시 데이터 추가 api 호출을 위해 submit 이벤트로 구현
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name !== "") {

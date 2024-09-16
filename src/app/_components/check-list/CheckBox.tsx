@@ -7,6 +7,11 @@ interface Props {
   onClick: (e: React.MouseEvent) => void;
 }
 
+/**
+ * 할 일 목록 체크박스 컴포넌트
+ * @param isChecked : 체크 여부
+ * @param onClick
+ */
 const CheckBox: React.FC<Props> = ({ isChecked, onClick }) => {
   return (
     <button onClick={onClick}>

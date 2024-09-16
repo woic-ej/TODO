@@ -5,6 +5,10 @@ interface Props {
   onClick?: () => void;
 }
 
+/**
+ * 이미지 수정 버튼
+ * @param onClick
+ */
 const EditButton: React.FC<Props> = ({ onClick }) => {
   return (
     <button

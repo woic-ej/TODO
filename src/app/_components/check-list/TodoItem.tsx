@@ -15,12 +15,17 @@ interface Props {
   item: GetItemType;
 }
 
+/**
+ * 홈 페이지에서 사용되는 할 일 컴포넌트
+ * @param item : 할 일 데이터
+ */
 const TodoItem: React.FC<Props> = ({ item }) => {
   const { name, id, isCompleted } = item;
   const [isChecked, setIsChecked] = useState<boolean>(isCompleted);
   const { listData, setListData } = useTodoStore();
   const router = useRouter();
 
+  // 체크박스 클릭 시 해당 item의 isCompleted 여부를 변경하여 patch 요청 호출
   const handleCheckBoxClick = async (e: React.MouseEvent) => {
     e.stopPropagation();
     try {
@@ -40,6 +45,7 @@ const TodoItem: React.FC<Props> = ({ item }) => {
     setIsChecked((prev) => !prev);
   };
 
+  // 할 일 클릭 시 상세 페이지로 이동
   const handleTodoClick = () => {
     router.push(`/items/${id}`);
   };

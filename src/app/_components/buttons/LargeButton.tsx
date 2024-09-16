@@ -9,6 +9,11 @@ interface Props {
   onClick?: (e: React.FormEvent) => void;
 }
 
+/**
+ * 큰 버튼 컴포넌트
+ * @param title : 버튼 텍스트
+ * @param onClick
+ */
 const LargeButton: React.FC<Props> = ({ title, onClick }) => {
   const IconComponent: React.FC = () => {
     switch (title) {

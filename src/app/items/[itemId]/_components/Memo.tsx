@@ -9,6 +9,10 @@ interface Props {
   memo: string;
 }
 
+/**
+ * 메모를 위한 컴포넌트
+ * @param memo : 저장된 메모 데이터
+ */
 const Memo: React.FC<Props> = ({ memo }) => {
   const [memoContent, setMemoContent] = useState<string>(memo);
   const { updateItem, setUpdateItem } = useUpdateItemStore();

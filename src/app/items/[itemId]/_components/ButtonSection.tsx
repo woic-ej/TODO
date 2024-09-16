@@ -10,10 +10,17 @@ interface Props {
   id: number;
 }
 
+/**
+ * 수정하기, 삭제하기 버튼 컴포넌트
+ * @param id : 할 일 id
+ * @returns
+ */
+
 const ButtonSection: React.FC<Props> = ({ id }) => {
   const router = useRouter();
   const { updateItem, clear } = useUpdateItemStore();
 
+  // 삭제하기 api 호출
   const handleDelete = async () => {
     try {
       await deleteData(`items/${id}`);
@@ -23,6 +30,7 @@ const ButtonSection: React.FC<Props> = ({ id }) => {
     }
   };
 
+  // 수정하기 api 호출
   const handleUpdate = async () => {
     try {
       await patchData(`items/${id}`, updateItem);

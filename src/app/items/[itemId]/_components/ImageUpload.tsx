@@ -12,20 +12,26 @@ interface Props {
   imageUrl: string;
 }
 
-const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_SIZE = 5 * 1024 * 1024; // 5MB (최대 이미지 사이즈)
 
+/**
+ * 이미지 업로드 및 편집을 위한 컴포넌트
+ * @param imageUrl : 저장된 이미지 URL
+ * @returns
+ */
 const ImageUpload: React.FC<Props> = ({ imageUrl }) => {
   const [image, setImage] = useState<string>(imageUrl);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const { updateItem, setUpdateItem } = useUpdateItemStore();
 
+  // 이미지 파일 첨부 로직
   const handleImageChange = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = event.target.files?.[0];
 
     if (file) {
-      const isEnglishName = /^[a-zA-Z0-9._-]+$/.test(file.name);
+      const isEnglishName = /^[a-zA-Z0-9._-]+$/.test(file.name); // 제목이 영어인지
 
       if (isEnglishName && file.size <= MAX_SIZE) {
         const formData = new FormData();
