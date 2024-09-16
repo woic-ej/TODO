@@ -15,7 +15,7 @@ const ListSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getData("items?page=1&pageSize=20");
+        const data = await getData("items");
         setListData(data.reverse());
       } catch (error) {
         console.error(error);
