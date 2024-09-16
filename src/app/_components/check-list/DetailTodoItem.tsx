@@ -2,15 +2,27 @@
 
 import React, { useState } from "react";
 import CheckBox from "./CheckBox";
+import { UpdateItemRequestType } from "@/app/_type/itemType";
+import { patchData } from "@/app/_api/api";
 
 interface Props {
-  todo: string;
+  id: number;
+  name: string;
+  isCompleted: boolean;
 }
 
-const DetailTodoItem: React.FC<Props> = ({ todo }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+const DetailTodoItem: React.FC<Props> = ({ id, name, isCompleted }) => {
+  const [isChecked, setIsChecked] = useState<boolean>(isCompleted || false);
 
-  const handleClick = () => {
+  const handleCheckBoxClick = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      const requestData: UpdateItemRequestType = {
+        name,
+        isCompleted: !isCompleted,
+      };
+      await patchData(`items/${id}`, requestData);
+    } catch (error) {}
     setIsChecked((prev) => !prev);
   };
 
@@ -21,8 +33,8 @@ const DetailTodoItem: React.FC<Props> = ({ todo }) => {
       }`}
     >
       <div className="flex items-center gap-4">
-        <CheckBox isChecked={isChecked} onClick={handleClick} />
-        <span className="underline nanum-bold-20 text-slate-900">{todo}</span>
+        <CheckBox isChecked={isChecked} onClick={handleCheckBoxClick} />
+        <span className="underline nanum-bold-20 text-slate-900">{name}</span>
       </div>
     </div>
   );
