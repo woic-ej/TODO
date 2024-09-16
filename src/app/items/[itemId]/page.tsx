@@ -23,7 +23,7 @@ const DetailPage = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [params.itemId]);
 
   return (
     <div className="md:w-[1200px] w-full flex justify-center min-h-screen py-6 sm:px-6 px-4 bg-white">

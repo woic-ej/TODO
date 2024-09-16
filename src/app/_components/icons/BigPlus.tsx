@@ -13,14 +13,14 @@ const BigPlus = ({ className }: { className?: string }) => {
       <path
         d="M3 12L21 12"
         stroke="current"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <path
         d="M12 21L12 3"
         stroke="current"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
     </svg>
   );

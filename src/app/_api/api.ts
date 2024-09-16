@@ -6,11 +6,22 @@ const API_BASE_URL = DOMAIN ?? "";
 const TENANT_ID = "woic";
 
 const makeHeader = async (body: any) => {
-  const headers: HeadersInit = {
-    "Content-Type": "application/json",
-  };
+  const headers: HeadersInit = {};
 
-  return { headers, body: body ? JSON.stringify(body) : undefined };
+  // FormData의 경우 Content-Type을 설정할 필요가 없으므로, 빈 헤더를 반환합니다.
+  if (body instanceof FormData) {
+    return { headers, body };
+  }
+
+  // JSON을 보낼 경우 Content-Type을 application/json으로 설정합니다.
+  if (body) {
+    return {
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    };
+  }
+
+  return { headers };
 };
 
 const fetchJSON = async (...params: Parameters<Fetch>) => {
