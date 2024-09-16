@@ -1,5 +1,5 @@
 import React from "react";
-import Plus from "@/app/_components/icons/Plus";
+import SmallPlus from "@/app/_components/icons/SmallPlus";
 import Delete from "@/assets/icons/button/x-icon.svg";
 import Check from "@/assets/icons/button/check-icon.svg";
 import classNames from "classnames";
@@ -13,7 +13,7 @@ const LargeButton: React.FC<Props> = ({ title, onClick }) => {
   const IconComponent: React.FC = () => {
     switch (title) {
       case "추가하기":
-        return <Plus className="active:stroke-white stroke-[#0F172A]" />;
+        return <SmallPlus className="active:stroke-white stroke-[#0F172A]" />;
       case "삭제하기":
         return <Delete />;
       case "수정완료":

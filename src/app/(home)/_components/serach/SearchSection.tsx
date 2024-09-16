@@ -14,18 +14,20 @@ const SearchSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const requestData: PostItemType = { name };
-      const response: ItemResponseType = await postData("items", requestData);
-      const newData = {
-        id: response.id,
-        name: response.name,
-        isCompleted: response.isCompleted,
-      };
-      setListData([...listData, newData]);
-      setIsName("");
-    } catch (error) {
-      console.error(error);
+    if (name !== "") {
+      try {
+        const requestData: PostItemType = { name };
+        const response: ItemResponseType = await postData("items", requestData);
+        const newData = {
+          id: response.id,
+          name: response.name,
+          isCompleted: response.isCompleted,
+        };
+        setListData([...listData, newData]);
+        setIsName("");
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 

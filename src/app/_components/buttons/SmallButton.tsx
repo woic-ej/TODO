@@ -1,32 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
-import Plus from "@/assets/icons/button/plus-button-icon.svg";
-import classNames from "classnames";
+import React from "react";
+import BigPlus from "@/app/_components/icons/BigPlus";
 
 interface Props {
   onClick: (e: React.FormEvent) => void;
 }
 
 const SmallButton: React.FC<Props> = ({ onClick }) => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-  const handleClick = (e: React.FormEvent) => {
-    onClick(e);
-    setIsClicked((prev) => !prev);
-  };
-
-  const buttonClass = classNames(
-    "w-[54.75px] h-[52px] flex justify-center items-center border-2 border-slate-900 rounded-3xl relative z-10",
-    {
-      "bg-violet-600 ": isClicked,
-      "bg-white": !isClicked,
-    }
-  );
-
   return (
-    <button onClick={handleClick} className="relative">
-      <div className={buttonClass}>
-        <Plus stroke={`${isClicked ? "white" : "#0F172A"}`} />
+    <button onClick={onClick} className="relative">
+      <div className="w-[54.75px] h-[52px] active:bg-violet-600 bg-white flex justify-center items-center border-2 border-slate-900 rounded-3xl relative z-10">
+        <BigPlus className="active:stroke-white stroke-[#0F172A]" />
       </div>
       <div className="w-[54.75px] h-[52px] bg-slate-900 rounded-3xl absolute top-1 left-[1.22px] z-0" />
     </button>

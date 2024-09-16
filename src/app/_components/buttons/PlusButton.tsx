@@ -1,5 +1,5 @@
 import React from "react";
-import PlusIcon from "@/assets/icons/button/plus-button-icon.svg";
+import BigPlus from "@/app/_components/icons/BigPlus";
 
 interface Props {
   onClick?: () => void;
@@ -11,7 +11,7 @@ const PlusButton: React.FC<Props> = ({ onClick }) => {
       onClick={onClick}
       className="w-[64px] h-[64px] flex justify-center items-center bg-slate-200 rounded-full "
     >
-      <PlusIcon stroke="#64748B" />
+      <BigPlus className="stroke-[#64748B]" />
     </button>
   );
 };
