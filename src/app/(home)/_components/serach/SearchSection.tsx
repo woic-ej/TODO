@@ -12,7 +12,8 @@ const SearchSection = () => {
   const [name, setIsName] = useState<string>("");
   const { listData, setListData } = useTodoStore();
 
-  const handleAdd = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     try {
       const requestData: PostItemType = { name };
       const response: ItemResponseType = await postData("items", requestData);
@@ -32,11 +33,6 @@ const SearchSection = () => {
     setIsName(value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    handleAdd();
-  };
-
   return (
     <form
       onSubmit={handleSubmit}
@@ -44,10 +40,10 @@ const SearchSection = () => {
     >
       <SearchBar value={name} onChange={handleChange} />
       <div className="hidden sm:block">
-        <LargeButton title="추가하기" onClick={handleAdd} />
+        <LargeButton title="추가하기" onClick={handleSubmit} />
       </div>
       <div className="block sm:hidden">
-        <SmallButton onClick={handleAdd} />
+        <SmallButton onClick={handleSubmit} />
       </div>
     </form>
   );

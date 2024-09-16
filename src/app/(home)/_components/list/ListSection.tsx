@@ -16,7 +16,7 @@ const ListSection = () => {
     const fetchData = async () => {
       try {
         const data = await getData("items?page=1&pageSize=20");
-        setListData(data);
+        setListData(data.reverse());
       } catch (error) {
         console.error(error);
       }

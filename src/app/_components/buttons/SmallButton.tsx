@@ -5,13 +5,13 @@ import Plus from "@/assets/icons/button/plus-button-icon.svg";
 import classNames from "classnames";
 
 interface Props {
-  onClick: () => void;
+  onClick: (e: React.FormEvent) => void;
 }
 
 const SmallButton: React.FC<Props> = ({ onClick }) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
-  const handleClick = () => {
-    onClick();
+  const handleClick = (e: React.FormEvent) => {
+    onClick(e);
     setIsClicked((prev) => !prev);
   };
 
