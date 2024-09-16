@@ -6,7 +6,7 @@ import LargeButton from "@/app/_components/buttons/LargeButton";
 
 const DetailPage = () => {
   return (
-    <div className="md:w-[1200px] w-full flex justify-center h-full pt-6 sm:px-6 px-4 bg-white">
+    <div className="md:w-[1200px] w-full flex justify-center min-h-screen pt-6 sm:px-6 px-4 bg-white">
       <div className="md:w-[996px] sm:w-[696px] w-[375px] flex flex-col gap-6">
         <DetailTodoItem todo="비타민 챙겨먹기" />
         <div className="flex md:flex-row flex-col gap-6">

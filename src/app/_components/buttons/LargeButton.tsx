@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 interface Props {
   title: string;
-  onClick: (e: React.FormEvent) => void;
+  onClick?: (e: React.FormEvent) => void;
 }
 
 const LargeButton: React.FC<Props> = ({ title, onClick }) => {

@@ -8,7 +8,7 @@ const Memo: React.FC = () => {
       <Image src={memo} alt="메모장" className="w-full h-full absolute" />
       <div className="w-full h-full flex flex-col items-center py-6 gap-6">
         <span className="text-amber-800 relative nanum-extraB-16">Memo</span>
-        <textarea className="w-[90%] flex flex-grow relative resize-none bg-inherit text-center p-4 rounded-md border items-center justify-center" />
+        <textarea className="w-[90%] flex flex-grow relative resize-none bg-inherit text-center p-4 rounded-md items-center justify-center focus:outline-none text-lg text-slate-800" />
       </div>
     </div>
   );

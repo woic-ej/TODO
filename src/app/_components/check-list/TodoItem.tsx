@@ -9,6 +9,7 @@ import {
 } from "@/app/_type/itemType";
 import { patchData } from "@/app/_api/api";
 import useTodoStore from "@/app/_store/todoStore";
+import { useRouter } from "next/navigation";
 
 interface Props {
   item: GetItemType;
@@ -18,8 +19,10 @@ const TodoItem: React.FC<Props> = ({ item }) => {
   const { name, id, isCompleted } = item;
   const [isChecked, setIsChecked] = useState<boolean>(isCompleted);
   const { listData, setListData } = useTodoStore();
+  const router = useRouter();
 
-  const handleClick = async () => {
+  const handleCheckBoxClick = async (e: React.MouseEvent) => {
+    e.stopPropagation();
     try {
       const requestData: UpdateItemRequestType = {
         name,
@@ -37,14 +40,19 @@ const TodoItem: React.FC<Props> = ({ item }) => {
     setIsChecked((prev) => !prev);
   };
 
+  const handleTodoClick = () => {
+    router.push(`/items/${id}`);
+  };
+
   return (
-    <div
+    <button
       className={`w-full h-[50px] rounded-[27px] border-2 pl-3 border-slate-900 flex items-center ${
         isChecked ? "bg-violet-100" : "bg-white"
       }`}
+      onClick={handleTodoClick}
     >
       <div className="flex items-center gap-4">
-        <CheckBox isChecked={isChecked} onClick={handleClick} />
+        <CheckBox isChecked={isChecked} onClick={handleCheckBoxClick} />
         <span
           className={`${
             isChecked && "line-through"
@@ -53,7 +61,7 @@ const TodoItem: React.FC<Props> = ({ item }) => {
           {name}
         </span>
       </div>
-    </div>
+    </button>
   );
 };
 

@@ -4,7 +4,7 @@ import ActiveCheckBox from "@/assets/icons/checkbox/checkbox-active.svg";
 
 interface Props {
   isChecked: boolean;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent) => void;
 }
 
 const CheckBox: React.FC<Props> = ({ isChecked, onClick }) => {
