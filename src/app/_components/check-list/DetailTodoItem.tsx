@@ -2,28 +2,27 @@
 
 import React, { useState } from "react";
 import CheckBox from "./CheckBox";
-import { UpdateItemRequestType } from "@/app/_type/itemType";
-import { patchData } from "@/app/_api/api";
+import useUpdateItemStore from "@/app/_store/updateItemStore";
 
 interface Props {
-  id: number;
   name: string;
   isCompleted: boolean;
 }
 
-const DetailTodoItem: React.FC<Props> = ({ id, name, isCompleted }) => {
+const DetailTodoItem: React.FC<Props> = ({ name, isCompleted }) => {
+  const { updateItem, setUpdateItem } = useUpdateItemStore();
   const [isChecked, setIsChecked] = useState<boolean>(isCompleted || false);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editedName, setEditedName] = useState<string>(name);
 
-  const handleCheckBoxClick = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    try {
-      const requestData: UpdateItemRequestType = {
-        name,
-        isCompleted: !isCompleted,
-      };
-      await patchData(`items/${id}`, requestData);
-    } catch (error) {}
+  const handleCheckBoxClick = async () => {
     setIsChecked((prev) => !prev);
+    setUpdateItem({ ...updateItem, isCompleted: !isChecked });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedName(e.target.value);
+    setUpdateItem({ ...updateItem, name: e.target.value });
   };
 
   return (
@@ -34,7 +33,23 @@ const DetailTodoItem: React.FC<Props> = ({ id, name, isCompleted }) => {
     >
       <div className="flex items-center gap-4">
         <CheckBox isChecked={isChecked} onClick={handleCheckBoxClick} />
-        <span className="underline nanum-bold-20 text-slate-900">{name}</span>
+        {isEditing ? (
+          <input
+            type="text"
+            value={editedName}
+            onChange={handleInputChange}
+            onBlur={() => setIsEditing(false)}
+            autoFocus
+            className="underline nanum-bold-20 text-slate-900 "
+          />
+        ) : (
+          <span
+            onClick={() => setIsEditing(true)}
+            className="underline nanum-bold-20 text-slate-900 cursor-pointer"
+          >
+            {editedName}
+          </span>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import PlusButton from "@/app/_components/buttons/PlusButton";
 import Image from "next/image";
 import EditButton from "@/app/_components/buttons/EditButton";
 import { postData } from "@/app/_api/api";
+import useUpdateItemStore from "@/app/_store/updateItemStore";
 
 interface Props {
   imageUrl: string;
@@ -16,6 +17,7 @@ const MAX_SIZE = 5 * 1024 * 1024; // 5MB
 const ImageUpload: React.FC<Props> = ({ imageUrl }) => {
   const [image, setImage] = useState<string>(imageUrl);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const { updateItem, setUpdateItem } = useUpdateItemStore();
 
   const handleImageChange = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -32,6 +34,7 @@ const ImageUpload: React.FC<Props> = ({ imageUrl }) => {
         try {
           const response = await postData("images/upload", formData);
           setImage(response.url); // 서버 응답에 따라 URL 저장
+          setUpdateItem({ ...updateItem, imageUrl: response.url });
           if (fileInputRef.current) {
             fileInputRef.current.value = ""; // 입력 필드 리셋
           }

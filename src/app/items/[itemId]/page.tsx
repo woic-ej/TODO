@@ -30,7 +30,6 @@ const DetailPage = () => {
       {todoItem && (
         <div className="md:w-[996px] sm:w-[696px] w-[375px] flex flex-col gap-6">
           <DetailTodoItem
-            id={todoItem.id}
             name={todoItem.name}
             isCompleted={todoItem.isCompleted}
           />
