@@ -1,6 +1,6 @@
 ## 📖 프로젝트 소개
 > 할 일 목록을 관리하는 To Do 서비스 <br/>
-> 코드잇 스프린트 단기 심화 4기 사전과제
+> 코드잇 스프린트 단기 심화 4기 사전과제입니다.
 <br/>
 
 ##  🚀 기술 스택
@@ -33,14 +33,14 @@ https://github.com/user-attachments/assets/89981a5c-adff-4a74-98d7-f517eaaed685
 <br/>
 
 ### [ 할 일 수정 기능 ]
-: 상세 페이지에서 할 일 내용 , 사진 , 메모를 수정하고 수정하기 버튼이 활성화 되면 수정 가능 
+: 상세 페이지에서 할 일 내용 , 사진 , 메모를 수정하고 수정하기 버튼이 활성화 되면 수정 가능합니다.
 
 https://github.com/user-attachments/assets/6bdcabe5-73c7-47d7-b11c-0ea1479d315c
 
 <br/>
 
 ### [ 할 일 삭제 기능 ]
-: 상세 페이지에서 삭제하기 버튼 클릭 시 해당 할 일 삭제
+: 상세 페이지에서 삭제하기 버튼 클릭 시 해당 할 일 삭제할 수 있습니다
 
 https://github.com/user-attachments/assets/7fb8f8b3-daf0-4fab-a933-ed1303ebc38e
 
