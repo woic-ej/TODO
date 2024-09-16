@@ -26,6 +26,7 @@ const ButtonSection: React.FC<Props> = ({ id }) => {
     try {
       await deleteData(`items/${id}`);
       router.replace("/");
+      clear();
     } catch (error) {
       console.error(error);
     }
