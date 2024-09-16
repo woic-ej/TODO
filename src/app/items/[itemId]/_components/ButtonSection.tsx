@@ -19,6 +19,7 @@ interface Props {
 const ButtonSection: React.FC<Props> = ({ id }) => {
   const router = useRouter();
   const { updateItem, clear } = useUpdateItemStore();
+  const isNotEmpty = Object.keys(updateItem).length > 0;
 
   // 삭제하기 api 호출
   const handleDelete = async () => {
@@ -43,8 +44,16 @@ const ButtonSection: React.FC<Props> = ({ id }) => {
 
   return (
     <div className="flex md:justify-end justify-center sm:gap-4 gap-[7px]">
-      <LargeButton title="수정완료" onClick={handleUpdate} />
-      <LargeButton title="삭제하기" onClick={handleDelete} />
+      <LargeButton
+        title="수정완료"
+        onClick={handleUpdate}
+        isActive={isNotEmpty}
+      />
+      <LargeButton
+        title="삭제하기"
+        onClick={handleDelete}
+        isActive={isNotEmpty}
+      />
     </div>
   );
 };

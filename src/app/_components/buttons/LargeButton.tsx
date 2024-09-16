@@ -6,19 +6,25 @@ import classNames from "classnames";
 
 interface Props {
   title: string;
+  isActive: boolean;
   onClick?: (e: React.FormEvent) => void;
 }
 
 /**
  * 큰 버튼 컴포넌트
  * @param title : 버튼 텍스트
+ * @param isActive : 버튼 활성화 여부
  * @param onClick
  */
-const LargeButton: React.FC<Props> = ({ title, onClick }) => {
+const LargeButton: React.FC<Props> = ({ title, isActive, onClick }) => {
   const IconComponent: React.FC = () => {
     switch (title) {
       case "추가하기":
-        return <SmallPlus className="active:stroke-white stroke-[#0F172A]" />;
+        return (
+          <SmallPlus
+            className={`${isActive ? "stroke-white" : "stroke-[#0F172A]"}`}
+          />
+        );
       case "삭제하기":
         return <Delete />;
       case "수정완료":
@@ -31,10 +37,10 @@ const LargeButton: React.FC<Props> = ({ title, onClick }) => {
   const buttonClass = classNames(
     "w-[164.35px] h-[56px] flex items-center justify-center border-2 border-slate-900 rounded-3xl nanum-bold-18 relative z-10",
     {
-      "bg-slate-200 text-slate-900": title !== "삭제하기",
+      "bg-slate-200 text-slate-900": !isActive && title !== "삭제하기",
       "bg-rose-500 text-white": title === "삭제하기",
-      "active:bg-violet-600 active:text-white": title === "추가하기",
-      "active:bg-lime-300": title === "수정완료",
+      "bg-violet-600 text-white": isActive && title === "추가하기",
+      "bg-lime-300": isActive && title === "수정완료",
     }
   );
 

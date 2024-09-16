@@ -47,10 +47,14 @@ const SearchSection = () => {
     >
       <SearchBar value={name} onChange={handleChange} />
       <div className="hidden sm:block">
-        <LargeButton title="추가하기" onClick={handleSubmit} />
+        <LargeButton
+          title="추가하기"
+          onClick={handleSubmit}
+          isActive={name !== ""}
+        />
       </div>
       <div className="block sm:hidden">
-        <SmallButton onClick={handleSubmit} />
+        <SmallButton isActive={name !== ""} onClick={handleSubmit} />
       </div>
     </form>
   );
